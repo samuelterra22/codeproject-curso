@@ -12,7 +12,10 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(CodeProject\Models\User::class, function (Faker\Generator $faker) {
+use CodeProject\Entities\Client;
+use CodeProject\Entities\User;
+
+$factory->define(User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -24,13 +27,12 @@ $factory->define(CodeProject\Models\User::class, function (Faker\Generator $fake
 });
 
 
-$factory->define(CodeProject\Models\Client::class, function (Faker\Generator $faker) {
+$factory->define(Client::class, function (Faker\Generator $faker) {
 
     return [
         'name'        => $faker->name,
         'responsible' => $faker->name,
         'email'       => $faker->email,
-        'phone'       => $faker->phoneNumber,
         'phone'       => $faker->phoneNumber,
         'address'     => $faker->address,
         'obs'         => $faker->sentence,
