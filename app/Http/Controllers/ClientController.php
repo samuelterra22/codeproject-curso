@@ -3,6 +3,7 @@
 namespace CodeProject\Http\Controllers;
 
 use CodeProject\Entities\Client;
+use CodeProject\Repositories\ClientRepositoryEloquent;
 use Illuminate\Http\Request;
 
 /**
@@ -14,8 +15,8 @@ class ClientController extends Controller
 {
 
 
-    public function index(){
-        return Client::all();
+    public function index(ClientRepositoryEloquent $repository){
+        return $repository->all();
     }
 
     public function store(Request $request){
